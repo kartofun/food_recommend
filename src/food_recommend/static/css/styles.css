@@ -1,0 +1,57 @@
+#loading-screen::before, #loading-screen::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+    animation-delay: .1s;
+}
+
+#loading-screen::before {
+    animation-name: loadingScreen1;
+}
+
+#loading-screen::after {
+    animation-name: loadingScreen2;
+}
+
+@keyframes loadingScreen1 {
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes loadingScreen2 {
+    to {
+        transform: translateY(100%);
+    }
+}
+/* p,
+li {
+    color: rgba(0, 0, 0, 1)
+} */
+
+body {
+    background: linear-gradient(#779ac9, #c986cf) fixed;
+}
+
+like_button_container {
+    color: blue
+}
+div.main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+    display: block;
+}
+
+div.main.h2 {
+    text-align: center;
+}
