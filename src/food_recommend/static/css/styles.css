@@ -48,10 +48,19 @@ like_button_container {
 div.main {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20%;
+    margin-bottom: 50%;
     width: 20em;
+    font-size: 1.5em;
     display: block;
 }
 
-div.main.h2 {
-    text-align: center;
+#like_button_container {
+    width: 20em;
+    height: 20em;
+    font-size: 1.3em;
+}
+
+.like_button {
+    color: green
 }
