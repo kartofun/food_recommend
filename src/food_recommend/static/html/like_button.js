@@ -1,48 +1,26 @@
-// import styles from '../css/styles.css'
-// 'use strict';
+'use strict';
 
-// const e = React.createElement;
+const e = React.createElement;
 
-// class LikeButton extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { liked: false };
-//   }
+class LikeButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
 
-//   render() {
-//     if (this.state.liked) {
-//       return 'You liked this.';
-//     }
+  render() {
+    if (this.state.liked) {
+      return 'ЕДА';
+    }
 
-//     return e(
-//       'button',
-//       { onClick: () => this.setState({ liked: true }) },
-//       'Huyaik'
-//     );
-//   }
-// }
-
-// const domContainer = document.querySelector('#like_button_container');
-// const root = ReactDOM.createRoot(domContainer);
-// root.render(e(LikeButton));
-
-import React from "react";
-import styled from "styled-components";
-
-const Button = styled.button{
-  padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
+    return e(
+      'button',
+      {className: "likebutton", onClick: () => this.setState({ liked: true }) },
+      'Хочу!'
+    );
+  }
 }
 
-const RoundedButton = (props) => {
-  const handleClick = () => {
-    alert("hello");
-  };
-
-  return <Button onClick={handleClick} {...props} />;
-};
-
-export default RoundedButton;
+const domContainer = document.querySelector('#like_button_container');
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
