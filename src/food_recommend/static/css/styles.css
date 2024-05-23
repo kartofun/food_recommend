@@ -20,7 +20,7 @@ body {
 
 
 .likebutton {
-    background: linear-gradient(#3888f0, #155230) fixed;
+    background: blueviolet;
     border: 1px solid #020731;
     border-radius: 18px;
     float: left;
