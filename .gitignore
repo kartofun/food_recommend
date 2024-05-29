@@ -1,4 +1,4 @@
-**/__pycache__
+__pycache__/
 dataset/
 .mypy.ini
 .mypy_cache
