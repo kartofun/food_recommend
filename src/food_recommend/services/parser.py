@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
 
 
 class Parser:
@@ -49,11 +50,36 @@ class Parser:
                 f.write(f"Инструкции: {instructions}nn")
 
 
+class ParserSelenium:
+    @staticmethod
+    def parse_recipe_links(url):
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        browser = webdriver.Chrome(options=options)
+
+        browser.get(url)
+        generated_html = browser.page_source
+        browser.quit()
+
+        # recipe_links = browser.find_element("link text", "recipes")
+        # Создаем объект BeautifulSoup
+        soup = BeautifulSoup(generated_html, "html.parser")
+
+        # Находим все ссылки на рецепты
+        recipe_links = []
+        for link in soup.find_all("a"):
+            # print(link.get("href"))
+            if "recipes" in link.get("href"):
+                recipe_links.append(link.get("href"))
+
+        # Возвращаем список ссылок на рецепты
+        return recipe_links
+
+        return recipe_links
+
+
 # if __name__ == "main":
 # Парсим веб-сайт с рецептами
-recipe_links = Parser.parse_recipe_links("https://andychef.ru")
+recipe_links = ParserSelenium.parse_recipe_links("https://andychef.ru/recipe")
 
-# Скачиваем рецепты
-Parser.download_recipes(recipe_links, "recipes.txt")
-
-print(recipe_links[0])
+print(*recipe_links, sep="\n")
