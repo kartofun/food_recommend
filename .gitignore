@@ -1,4 +1,4 @@
 dataset/
-mypy.ini
+.mypy.ini
 __pycache__/
 .mypy_cache
