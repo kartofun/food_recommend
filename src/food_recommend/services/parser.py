@@ -9,6 +9,7 @@ class Parser:
 
         # Получаем HTML-код веб-страницы
         response = requests.get(url)
+        print(response.text)
         html = response.text
 
         # Создаем объект BeautifulSoup
@@ -50,9 +51,9 @@ class Parser:
 
 # if __name__ == "main":
 # Парсим веб-сайт с рецептами
-recipe_links = Parser.parse_recipe_links("https://andychef.ru/recipes/")
+recipe_links = Parser.parse_recipe_links("https://andychef.ru")
 
 # Скачиваем рецепты
-# Parser.download_recipes(recipe_links, "recipes.txt")
+Parser.download_recipes(recipe_links, "recipes.txt")
 
 print(recipe_links[0])
