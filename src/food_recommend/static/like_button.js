@@ -1,18 +1,22 @@
 'use strict';
-
+const recipe = "test_food"
 const e = React.createElement;
 
-async function getRecipe(){
-  const response = await fetch("/recipes", {
-    method: "GET",
-    headers: {"Accept": "application/json"}
-  });
-  if (response.ok == true) {
-    const recipe = await response.json();
-    // document.getElementById("message").value = recipe
-    return recipe
-  }
-}
+// async function getRecipe(){
+//   const response = await fetch("/recipes", {
+//     method: "GET",
+//     headers: {"Accept": "application/json"}
+//   });
+//   const recipe = await response.json();
+//   window.alert(recipe.json())
+//   if (response.ok == true) {
+//     const recipe = await response.json();
+//     console.log(recipe)
+//     // document.getElementById("likebutton").value = recipe
+//     return recipe
+//     // return recipe
+//   }
+// }
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -22,8 +26,9 @@ class LikeButton extends React.Component {
 
   render() {
     if (this.state.liked) {
-      // return getRecipe();
-      return 'test_food'
+      return recipe
+      // return recipe
+      // return 'test_food'
     }
 
     return e(

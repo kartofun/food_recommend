@@ -28,4 +28,5 @@ async def root():
 async def recipe():
     recipe_links = ["1_link"]
     # recipe_links = ParserSelenium.parse_recipe_links("https://andychef.ru/recipe")
+    print(recipe_links)
     return {"message": str(recipe_links[0])}
