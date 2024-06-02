@@ -1,5 +1,5 @@
 'use strict';
-const recipe = "test_food"
+// const recipe = "test_food"
 const e = React.createElement;
 
 // async function getRecipe(){
@@ -26,9 +26,8 @@ class LikeButton extends React.Component {
 
   render() {
     if (this.state.liked) {
-      return recipe
-      // return recipe
-      // return 'test_food'
+      const element = new Date().toLocaleTimeString();
+      return element
     }
 
     return e(
