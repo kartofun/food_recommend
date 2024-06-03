@@ -11,7 +11,6 @@ async function getRecipe(){
   window.alert(recipe.json())
   if (response.ok == true) {
     const recipe = await response.json();
-    console.log(recipe)
     // document.getElementById("likebutton").value = recipe
     return recipe
     // return recipe
@@ -21,41 +20,46 @@ async function getRecipe(){
 class LikeButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { liked: false };
-    this.state = {date: new Date()};
-    this.state = {recipe: "null recipe"};
+    this.state = {
+      liked: false,
+      recipe: "null recipe",
+      error: null,
+      isLoaded: false,
+      items: []
+    };
   }
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.load_data(),
-      1000
-    );
-  }
-  load_data = () => {
-    fetch('/recipes', {
-    headers: {'Content-Type':'application/json'},
-    mode: 'cors',
-    method: httpMethod,
-    body: JSON.stringify(params)
-  })
-    .then(response => response.json())
-    .then(data => this.setState({
-      recipe: data
-    }));
+    fetch("/recipes")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            recipe: result.data
+          });
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+        // чтобы не перехватывать исключения из ошибок в самих компонентах.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
 
   render() {
     if (this.state.liked) {
-      // const element = new Date().toLocaleTimeString();
-      const element = this.state.recipe;
-      // const response = await fetch("/recipes", {
-      //   method: "GET",
-      //   headers: {"Accept": "application/json"}
-      // });
-      // const recipe = await respoinse.json();
-      return element
+      const { error, isLoaded, items } = this.state;
+    if (error) {
+      return "error";
+    } else if (!isLoaded) {
+      return "Загрузка...";
+    } else {
+      return "recipe: " + this.state.recipe
     }
-
+  }
     return e(
       'button',
       {className: "likebutton", onClick: () => this.setState({ liked: true }) },
