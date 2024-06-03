@@ -22,11 +22,29 @@ class LikeButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = { liked: false };
+    this.state = {date: new Date()};
+  }
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+  tick() {
+    this.setState({
+      date: new Date()
+    });
   }
 
   render() {
     if (this.state.liked) {
-      const element = new Date().toLocaleTimeString();
+      // const element = new Date().toLocaleTimeString();
+      const element = this.state.date.toLocaleTimeString();
+      // const response = await fetch("/recipes", {
+      //   method: "GET",
+      //   headers: {"Accept": "application/json"}
+      // });
+      // const recipe = await respoinse.json();
       return element
     }
 
