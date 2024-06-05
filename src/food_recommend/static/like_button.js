@@ -22,7 +22,7 @@ class LikeButton extends React.Component {
     super(props);
     this.state = {
       liked: false,
-      recipe: "null recipe",
+      recipe: "null",
       error: null,
       isLoaded: false,
       items: []
@@ -57,13 +57,19 @@ class LikeButton extends React.Component {
     } else if (!isLoaded) {
       return "Загрузка...";
     } else {
-      return "recipe: " + this.state.recipe
+      const url = "https://google.com";
+      return "ddd"
     }
   }
     return e(
       'button',
       {className: "likebutton", onClick: () => this.setState({ liked: true }) },
       'clickme'
+    );
+    return (
+      <button onClick={this.setState({ liked: true })}>
+        {this.state.isToggleOn ? 'null' : 'OFF'}
+      </button>
     );
   }
 }
