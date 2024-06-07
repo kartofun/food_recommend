@@ -75,8 +75,6 @@ class ParserSelenium:
         # Возвращаем список ссылок на рецепты
         return recipe_links
 
-        return recipe_links
-
 
 # if __name__ == "main":
 # Парсим веб-сайт с рецептами
