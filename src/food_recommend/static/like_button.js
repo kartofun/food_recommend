@@ -57,8 +57,7 @@ class LikeButton extends React.Component {
     } else if (!isLoaded) {
       return "Загрузка...";
     } else {
-      const url = "https://google.com";
-      return "ddd"
+      return this.state.recipe
     }
   }
     return e(

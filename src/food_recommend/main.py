@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from services.parser import ParserSelenium
-# from pathlib import Path
 
 app = FastAPI()
 
@@ -12,7 +11,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
-    # return FileResponse("static/index.html")
     return RedirectResponse(url="/static/index.html")
 
 
