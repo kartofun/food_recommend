@@ -16,7 +16,6 @@ async def root():
 
 @app.get("/recipes")
 async def recipe():
-    recipe_links = ["1_link"]
     recipe_links = ParserSelenium.parse_recipe_links("https://andychef.ru/recipe")
     print(recipe_links)
     return {"data": recipe_links[0]}
