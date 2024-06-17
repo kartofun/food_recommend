@@ -75,9 +75,6 @@ class ParserSelenium:
         # Возвращаем список ссылок на рецепты
         return recipe_links
 
-
-# if __name__ == "main":
-# Парсим веб-сайт с рецептами
 recipe_links = ParserSelenium.parse_recipe_links("https://andychef.ru/recipe")
 
 print(*recipe_links, sep="\n")
