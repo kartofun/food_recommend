@@ -13,9 +13,9 @@ app = FastAPI(
 )
 
 app.include_router(router_pages)
-# recipe_links = ParserSelenium.parse_recipe_links("https://andychef.ru/recipe")
+recipe_links = ParserSelenium.parse_recipe_links("https://andychef.ru/recipe")
 
-recipe_links = [1,2,3,4,5,6]
+# recipe_links = [1,2,3,4,5,6]
 
 class Dessert(BaseModel):
     calories: int
